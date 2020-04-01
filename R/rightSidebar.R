@@ -160,7 +160,7 @@ rightSidebarTabItem <- function(id, icon, active) {
     shiny::tags$a(
       href = paste0("#control-sidebar-", id, "-tab"), 
       `data-toggle` = "tab",
-      shiny::tags$i(class = iconClass(icon))
+      shiny::tags$i(class = shiny:::iconClass(icon))
     )
   )
 }
