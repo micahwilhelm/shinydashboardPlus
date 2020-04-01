@@ -160,7 +160,7 @@ rightSidebarTabItem <- function(id, icon, active) {
     shiny::tags$a(
       href = paste0("#control-sidebar-", id, "-tab"), 
       `data-toggle` = "tab",
-      shiny::tags$i(class = paste0("fa fa-", icon))
+      shiny::tags$i(class = iconClass(icon))
     )
   )
 }
@@ -322,7 +322,8 @@ menuIcon <- function(name, color) {
   stopifnot(!is.null(name))
   stopifnot(!is.null(color))
   
-  menuIconCl <- paste0("menu-icon", " fa fa-", name, " bg-", color)
+  menuIconCl <- paste0("menu-icon", " fa fa-", name, " bg-", color) #  menuIconCl <- paste0("menu-icon ", iconClass(name), " bg-", color)
+
   shiny::tags$i(class = menuIconCl)
 }
 
