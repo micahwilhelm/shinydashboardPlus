@@ -130,8 +130,9 @@ rightSidebarTabList <- function(...) {
       id <- gsub(x = id, pattern = "-tab", replacement = "")
       active <- sum(grep(x = item$attribs$class, pattern = "active")) == 1
       icon <- item$attribs$icon
+      title <- item$attribs$title
       
-      rightSidebarTabItem(id = id, icon = icon, active = active)
+      rightSidebarTabItem(id = id, icon = icon, active = active, title = title)
     })
     
     # put everything inside the container
@@ -150,8 +151,9 @@ rightSidebarTabList <- function(...) {
 #' @param id unique item id.
 #' @param icon tab icon.
 #' @param active Whether the tab item is active or not.
+#' @param title Hover text.
 #' 
-rightSidebarTabItem <- function(id, icon, active) {
+rightSidebarTabItem <- function(id, icon, active, title) {
   
   stopifnot(!is.null(id))
   
@@ -160,7 +162,7 @@ rightSidebarTabItem <- function(id, icon, active) {
     shiny::tags$a(
       href = paste0("#control-sidebar-", id, "-tab"), 
       `data-toggle` = "tab",
-      shiny::tags$i(class = icon)
+      shiny::tags$i(class = icon, title = title)
     )
   )
 }
@@ -199,6 +201,7 @@ rightSidebarTabContent <- function(..., id, title = NULL, active = FALSE,
     class = if (isTRUE(active)) "tab-pane active" else "tab-pane", 
     id = paste0("control-sidebar-", id, "-tab"),
     icon = icon,
+    title = title,
     shiny::tags$h3(class = "control-sidebar-heading", title),
     ...
   )
