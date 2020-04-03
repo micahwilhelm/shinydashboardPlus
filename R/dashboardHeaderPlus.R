@@ -175,7 +175,7 @@ dashboardHeaderPlus <- function(..., title = NULL, titleWidth = NULL,
       class = paste0("navbar navbar-", if (fixed) "fixed" else "static", "-top"), 
       role = "navigation",
       # Embed hidden icon so that we get the font-awesome dependency
-      shiny::tags$span(shiny::icon("bars"), style = "display:none;"),
+      shiny::tags$span(shiny::icon("info"), style = "display:none;"),
       # Sidebar toggle button
       shiny::tags$a(
         href = "#", 
